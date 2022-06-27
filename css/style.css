@@ -1,0 +1,492 @@
+/* 
+&display=swap
+&subset=cyrillic-ext 
+*/
+
+/* ОБНУЛЕНИЕ СТИЛЕЙ */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+li {
+	list-style: none;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+img {
+	vertical-align: top;
+}
+html,
+body {
+	height: 100%;
+}
+html {
+	font-size: 16px; /* по умолчанию */
+}
+body {
+	line-height: 1;
+	/* color: #000; */
+	/* font-family:""; */
+	overflow-x: hidden;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	background-color: rgb(68, 65, 65);
+}
+.wrapper {
+	min-height: 100%;
+	padding: 0px;
+}
+/* ------------------------------ */
+
+/* Селекторы атрибутов */
+
+/* Конкретый поиск */
+[href="https://google.com"]
+{
+	/* color: red; */
+}
+/* Поиск окончания */
+[href$=".com"] {
+	/* color: red; */
+}
+/* Поиск начала */
+[href^="http"] {
+	/* color: red; */
+}
+/* Поиск слова из указанных через пробелы */
+[class~="body-about"] {
+	/* color: red; */
+}
+/* Поиск слова из указанных через дефис */
+[class|="body-about"] {
+	/* color: red; */
+}
+/* Поиск по любому вхождению */
+[href*=":"] {
+	/* color: red; */
+}
+/* Ограничивающий контейнер */
+[class*="__container"] {
+	max-width: 800px;
+	margin: 0px auto;
+}
+
+/* ------------------------------ */
+/* .sky__clouds {
+	padding-left: 109%;
+	border: red 1px dotted;
+} */
+.sky {
+	position: relative;
+	margin: 0 auto;
+	background-color: rgb(104, 216, 246);
+	width: 100%;
+	height: 480px;
+}
+span { display: inline-block;
+	z-index: 10;
+	position: relative;
+text-align: right;
+	font-size: 25px;
+	font-weight: 700;
+	color:rgb(104, 216, 246);
+	animation-name: dottedSky;
+animation-timing-function: linear;
+	animation-duration: 60s;
+	animation-iteration-count: infinite ;
+}
+.cloud {
+	position: relative;
+	width: 150px;
+	height: 60px;
+	background-color: #fff;
+
+	top: 60px;
+	border-radius: 50%;
+	animation-name: dottedSky;
+animation-timing-function: linear;
+	animation-duration: 60s;
+	animation-iteration-count: infinite ;
+
+
+}
+
+@keyframes dottedSky { 
+	0% {
+		left: 120%;
+	}
+	60% {
+		color: rgb(104, 216, 246);
+	}
+	70% {
+		color: #fcfc21;
+	}
+
+	100% {
+		left: -40%;
+		color: rgb(104, 216, 246);
+	}
+}
+
+
+
+
+
+
+
+
+.cloud::before {
+	position: absolute;
+	content: "";
+	width: 250px;
+	height: 60px;
+	background-color: #fff;
+	left: 45%;
+	top: 20%;
+	border-radius: 50%;
+}
+.cloud::after {
+	position: absolute;
+	content: "";
+	width: 250px;
+	height: 60px;
+	background-color: #fff;
+	left: 75%;
+	top: -30%;
+	border-radius: 50%;
+}
+.cloud_second {
+	left: 0%;
+	top: 150px;
+	transform: rotate(180deg);
+}
+
+@keyframes rotateSun {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.sun__disk {
+
+	animation-name: rotateSun;
+		animation-duration: 15s;
+			animation-timing-function:linear ;
+		animation-iteration-count: infinite;
+
+position: absolute;
+	width: 60px;
+height: 60px;
+background-color: #fcfc21;
+left: 90px;
+top: 90px;
+transform: translate(-50%, -50%);
+}
+.sun__disk::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform: rotate(30deg);
+	background-color:#fcfc21 ;
+}
+.sun__disk::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform: rotate(60deg);
+	background-color:#fcfc21 ;
+}
+
+.line {
+	/* position: absolute; */
+	height: 30px;
+	top: 0px;
+	width: 100%;
+	background-color: rgb(17, 172, 41);
+}
+.road {
+	position: relative;
+	background-color: #fff;
+	height: 20px;
+	width: 200%;
+	top: 440px;
+margin-left: -55%;
+	}
+
+.car-body:hover .road {
+animation-name: dottedLine;
+animation-timing-function: linear;
+	animation-duration: 1s;
+	animation-iteration-count: infinite ;
+	animation-delay: 2s;
+	}
+
+.road__block-black {
+display: inline-block;
+height: 100%;
+width: 40px;
+background-color: rgb(68, 65, 65);
+margin: 0px 100px 0px 0px;
+}
+
+
+@keyframes dottedLine {
+0% {
+	transform: translateX(0px);
+}
+100% {
+	transform: translateX(140px);
+}
+}
+
+.car-body {
+	width: 980px;
+	/* border: red 1px dotted; */
+	position: relative;
+	font-size: 0;
+	margin: -290px auto 0px auto;
+}
+.car-body:hover .car-body__front__headlight{	
+	background-color: rgb(250, 238, 69);
+	animation-name: signalFront;
+	animation-duration: 1s;
+	animation-iteration-count:2 ;
+}
+
+	.car-body:hover .car-body__back__headlight{	
+		background-color: crimson;
+		animation-name: signalBack;
+		animation-duration: 1s;
+		animation-iteration-count:2 ;
+	}
+
+@keyframes signalFront {
+	25% {background-color: rgb(250, 238, 69);
+}
+50% {
+	background-color: rgb(167, 218, 201);
+}
+75% {background-color: rgb(250, 238, 69);
+	25% 
+}
+	100% {
+		background-color: rgb(167, 218, 201);
+	}
+}
+
+@keyframes signalBack {
+	25% {background-color: crimson;
+}
+50% {
+	background-color: rgb(167, 218, 201);
+}
+75% {background-color: crimson;
+	25% 
+}
+	100% {
+		background-color: rgb(167, 218, 201);
+	}
+}
+
+.car-body:hover .door__win {
+	transition-duration: 2s;
+	transform: translateY(100%);
+	}
+
+.car-body__front {
+	width: 300px;
+	height: 200px;
+	display: inline-block;
+	border-top-left-radius: 100px;
+	background-color: #959b92;
+	position: relative;
+}
+.car-body__center {
+	width: 500px;
+	height: 350px;
+	background-color: #959b92;
+	display: inline-block;
+	position: relative;
+}
+.car-body__back {
+	position: relative;
+	width: 150px;
+height: 200px;
+background-color: #959b92;
+display: inline-block;
+}
+.headlight {
+	position: absolute;
+	width: 40px;
+height: 100px;
+
+background-color: rgb(167, 218, 201);
+border-radius: 50%;
+}
+.headlight-close-bottom {
+	position: absolute;
+	width: 40px;
+	height: 50px;
+	background-color: #959b92;
+	top: 100px;
+}
+.car-body__front__headlight {
+	position: absolute;
+	top: 50px;
+	
+}
+.car-body__back__headlight {
+	position: absolute;
+	top: 50px;
+	left: 100%;
+	transform: translate(-50%, -50%);
+	
+}
+.door {display: inline-block;
+	width: 200px;
+	height: 300px;
+	border: black 2px solid;
+	position: absolute;
+	left: 30px;
+	top: 20px;
+	padding: 9px;
+}
+.pocket-door {
+	position:absolute;
+	width: 180px;
+	height: 120px;
+	background-color: #959b92;
+	z-index: 2;
+	padding: 20px 0px 0px 120px;
+}
+.doors-knob {
+	width: 40px;
+	height: 15px;
+	border-radius: 30%;
+	background-color: #333;
+}
+.door_second {
+	left: 270px;	
+}
+.wrapper-door__window {
+	background: url('../img/andrey.jpg') 30px 0px/60% auto no-repeat;
+
+
+
+
+}
+.wrapper-door__window-second {
+	background: url('../img/альона.BMP') 30px 0px/60% auto no-repeat;
+}
+.door__win {
+	width: 180px;
+	height: 120px;
+	background-color: rgb(167, 218, 201);
+	transition-duration: 3s;
+	opacity: 0.94;
+}
+
+.window {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	/* border: red 1px dotted; */
+	overflow: hidden;
+	opacity: 0.9;
+}
+.window__rotate {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	background-color:rgb(167, 218, 201) ;
+	/* border: rgb(234, 238, 12) 1px dotted; */
+	transform: rotate(-45deg) scale(1.450);
+	transform-origin: 150px 0px;
+}
+.window__rotate_back {
+	transform-origin: 0px 0px;
+	transform: rotate(45deg) scale(1.450);
+}
+.car-body__window {
+left: 150px;
+top: 0px;
+}
+.car-body__back__window {
+	left: 0px;
+	top: -150px;
+}
+.car-body__front__window {
+	left: 150px;
+	top: -150px;
+}
+.wheel {
+	position: absolute;
+	width: 180px;
+	height: 180px;
+	background-color: #1f201ffa;
+	border-radius: 50%;
+	top: 110px;
+	left: 90px;
+		}
+	.wheel_back {
+		left: 0px;
+	}
+	 .car-body:hover .wheel { 
+			animation-name: rotateWheel;
+		animation-duration: 1s;
+		animation-delay: 2s;
+		animation-timing-function:linear ;
+		animation-iteration-count: infinite;
+		} 
+
+	@keyframes rotateWheel {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(-360deg);
+		}
+	}
+
+.wheel__disk {
+	position: absolute;
+		width: 60px;
+	height: 60px;
+	background-color: #bfc4bd;
+	left: 90px;
+	top: 90px;
+	transform: translate(-50%, -50%);
+	}
+	.wheel__disk::before {
+		content: "";
+		position: absolute;
+      width: 100%;
+		height: 100%;
+		transform: rotate(45deg);
+		background-color: #bfc4bd;
+	}
+
+
+	
